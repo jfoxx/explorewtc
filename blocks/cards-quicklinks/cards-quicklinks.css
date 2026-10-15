@@ -1,0 +1,74 @@
+/* Plan Your Visit quick links: a row of icon-over-label links (values from source) */
+.cards-quicklinks > ul {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-quicklinks > ul > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  text-align: center;
+}
+
+.cards-quicklinks .cards-quicklinks-link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* source has no hover treatment on these links */
+.cards-quicklinks .cards-quicklinks-link:hover {
+  text-decoration: none;
+}
+
+/* icons render at their intrinsic size (48 x 60 pins) */
+.cards-quicklinks .cards-quicklinks-icon img {
+  vertical-align: baseline;
+}
+
+.cards-quicklinks .cards-quicklinks-body > * {
+  margin: 0;
+}
+
+.cards-quicklinks .cards-quicklinks-body {
+  color: var(--wtc-black);
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+}
+
+@media (width > 576px) {
+  .cards-quicklinks > ul > li {
+    margin-right: 2rem;
+  }
+
+  .cards-quicklinks .cards-quicklinks-body {
+    font-size: 1.25rem;
+    line-height: 1.85;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-quicklinks > ul {
+    justify-content: normal;
+  }
+}
+
+@media (width >= 1200px) {
+  .cards-quicklinks > ul > li {
+    margin-right: 0;
+    padding-right: 5rem;
+  }
+
+  .cards-quicklinks > ul > li:last-child {
+    padding-right: 0;
+  }
+}

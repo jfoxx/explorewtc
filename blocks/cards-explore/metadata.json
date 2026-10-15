@@ -1,0 +1,20 @@
+{
+  "variantName": "cards-explore",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "medium",
+    "purpose": "attraction-tiles",
+    "imagePattern": "full-tile-overlay",
+    "structure": "image + overlay linked title + hover description"
+  },
+  "contentPattern": "Each row: [image | linked title (h3/strong link) + description paragraph]",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": null
+  },
+  "options": [],
+  "memberVariantIds": []
+}

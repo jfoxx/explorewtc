@@ -1,0 +1,20 @@
+{
+  "variantName": "cards-quicklinks",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light-blue",
+    "density": "compact",
+    "purpose": "icon-quick-links",
+    "imagePattern": "icon",
+    "structure": "icon + linked label"
+  },
+  "contentPattern": "Each row: [icon image | linked label]",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": null
+  },
+  "options": [],
+  "memberVariantIds": []
+}

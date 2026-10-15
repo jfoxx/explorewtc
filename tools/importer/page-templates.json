@@ -1,0 +1,157 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "local",
+      "urls": [
+        "https://www.explorewtc.com/en/local.html"
+      ],
+      "representativeUrl": "https://www.explorewtc.com/en/local.html",
+      "description": "Explore WTC local landing page: video hero, quick links, newsletter promo, attraction tiles, upcoming events, featured articles carousel and social promo",
+      "urlPattern": "/en/*",
+      "blocks": [
+        {
+          "name": "hero-video",
+          "instances": [
+            ".landing-hero"
+          ]
+        },
+        {
+          "name": "cards-quicklinks",
+          "instances": [
+            ".quick-links .wtc-quick-links__link-wrapper"
+          ]
+        },
+        {
+          "name": "columns-newsletter",
+          "instances": [
+            ".newsletter:not(.aem-GridColumn--default--hide)"
+          ]
+        },
+        {
+          "name": "cards-explore",
+          "instances": [
+            ".wtc-section--header-light-blue-title .card-hover"
+          ]
+        },
+        {
+          "name": "cards-event",
+          "instances": [
+            ".wtc-upcoming-events__desktop .card-hero"
+          ]
+        },
+        {
+          "name": "carousel-featured",
+          "instances": [
+            ".carousel-dynamic"
+          ]
+        },
+        {
+          "name": "columns-social",
+          "instances": [
+            ".wtc-body__content-wrapper > .aem-Grid > div.html:has(.instagram-media)"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "1",
+          "name": "Hero",
+          "selector": [
+            ".landing-hero"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-video"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "2",
+          "name": "Plan Your Visit quick links",
+          "selector": [
+            ".section.wtc-section--white-title"
+          ],
+          "style": "light-blue",
+          "blocks": [
+            "cards-quicklinks"
+          ],
+          "defaultContent": [
+            ".wtc-quick-links__title"
+          ]
+        },
+        {
+          "id": "3",
+          "name": "Newsletter signup",
+          "selector": [
+            ".newsletter:not(.aem-GridColumn--default--hide)"
+          ],
+          "style": "dark-blue",
+          "blocks": [
+            "columns-newsletter"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "4",
+          "name": "Come Explore",
+          "selector": [
+            ".section.wtc-section--header-light-blue-title"
+          ],
+          "style": "dark",
+          "blocks": [
+            "cards-explore"
+          ],
+          "defaultContent": [
+            ".wtc-section--header-light-blue-title .cmp-title__text",
+            ".wtc-section--header-light-blue-title .wtc-button"
+          ]
+        },
+        {
+          "id": "5",
+          "name": "Upcoming Events",
+          "selector": [
+            ".section:has(.wtc-upcoming-events)"
+          ],
+          "style": "light-blue",
+          "blocks": [
+            "cards-event"
+          ],
+          "defaultContent": [
+            ".wtc-upcoming-events__desktop .cmp-title__text",
+            ".wtc-upcoming-events__desktop .wtc-button"
+          ]
+        },
+        {
+          "id": "6",
+          "name": "Featured articles carousel",
+          "selector": [
+            ".section.wtc-section--container-no-vertical-padding"
+          ],
+          "style": "light-blue",
+          "blocks": [
+            "carousel-featured"
+          ],
+          "defaultContent": [
+            ".wtc-section--container-no-vertical-padding .cmp-title__text"
+          ]
+        },
+        {
+          "id": "7",
+          "name": "Social / Share your photos",
+          "selector": [
+            ".wtc-body__content-wrapper > .aem-Grid > div.html:has(.instagram-media)",
+            ".wtc-body__content-wrapper > .aem-Grid > div.html:has(iframe[src*='instagram.com'])"
+          ],
+          "style": "dark",
+          "blocks": [
+            "columns-social"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

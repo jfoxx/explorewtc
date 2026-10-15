@@ -1,0 +1,20 @@
+{
+  "variantName": "carousel-featured",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light-blue",
+    "density": "medium",
+    "purpose": "article-slider",
+    "imagePattern": "tile-overlay",
+    "structure": "image + eyebrow + linked title (3 per view, arrows + dots)"
+  },
+  "contentPattern": "Each row (slide): [image | eyebrow 'Blog Article' paragraph + linked title]",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": null
+  },
+  "options": [],
+  "memberVariantIds": []
+}

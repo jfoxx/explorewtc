@@ -1,0 +1,208 @@
+/* full-bleed: escape the section content max-width */
+.hero-video-container .hero-video-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/*
+ * Source sizes are rem-based against a responsive root font-size
+ * (12px <= 576px, 13px above). --hero-video-rem reproduces that scale.
+ */
+.hero-video {
+  --hero-video-rem: 12px;
+
+  position: relative;
+  height: max(400px, min(500px, 100vh - 200px));
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--wtc-white);
+}
+
+/* background media */
+.hero-video .hero-video-media {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: min(500px, 100vh - 50px);
+  min-height: 100%;
+}
+
+.hero-video .hero-video-media picture,
+.hero-video .hero-video-media img,
+.hero-video .hero-video-media video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video .hero-video-media img {
+  object-position: 50% 0%;
+}
+
+.hero-video .hero-video-media video {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.hero-video .hero-video-media.is-playing video {
+  opacity: 1;
+}
+
+/* text overlay (shown on mobile only, as on the source) */
+.hero-video .hero-video-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 calc(4 * var(--hero-video-rem));
+  background: linear-gradient(rgb(0 0 0 / 0%) 0, rgb(0 0 0 / 50%) 100%);
+  text-align: center;
+}
+
+.hero-video .hero-video-content h1 {
+  margin: 0 0 var(--hero-video-rem);
+  color: var(--wtc-white);
+  font-size: calc(2.5 * var(--hero-video-rem));
+  line-height: 1.36;
+}
+
+.hero-video .hero-video-content p {
+  margin: 0;
+}
+
+.hero-video .hero-video-content .button-wrapper {
+  margin: var(--hero-video-rem) 0 0;
+  padding: 0 0 var(--hero-video-rem);
+}
+
+.hero-video .hero-video-content > :last-child {
+  margin-bottom: 0;
+}
+
+/* white outlined CTA with white double arrow */
+.hero-video a.button:any-link {
+  min-height: calc(3.5 * var(--hero-video-rem));
+  padding: 0 0 0 var(--hero-video-rem);
+  border-color: var(--wtc-white);
+  color: var(--wtc-white);
+  font-size: calc(1.68 * var(--hero-video-rem));
+}
+
+.hero-video a.button:any-link::after {
+  width: calc(1.8125 * var(--hero-video-rem));
+  height: calc(1.625 * var(--hero-video-rem));
+  margin: calc(0.625 * var(--hero-video-rem));
+  background-image: url('../../icons/double-arrow-white.svg');
+}
+
+/* pause/play control for the background video (desktop only, where the video shows) */
+.hero-video .hero-video-toggle {
+  display: none;
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid var(--wtc-white);
+  border-radius: 50%;
+  background: rgb(0 0 0 / 40%);
+  cursor: pointer;
+}
+
+/* pause icon: two bars */
+.hero-video .hero-video-toggle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 12px;
+  height: 14px;
+  margin: auto;
+  border-inline: 4px solid var(--wtc-white);
+  box-sizing: border-box;
+}
+
+/* play icon: triangle */
+.hero-video .hero-video-toggle.is-paused::before {
+  width: 0;
+  height: 0;
+  border-block: 8px solid transparent;
+  border-inline-start: 13px solid var(--wtc-white);
+  border-inline-end: 0;
+  transform: translateX(2px);
+}
+
+.hero-video .hero-video-toggle:hover {
+  background: rgb(0 0 0 / 60%);
+}
+
+.hero-video .hero-video-toggle:focus-visible {
+  outline: 2px solid var(--wtc-white);
+  outline-offset: 2px;
+}
+
+/* no background media: render content in flow */
+.hero-video.no-media {
+  height: auto;
+  background-color: var(--wtc-black);
+}
+
+.hero-video.no-media .hero-video-content {
+  position: static;
+  height: auto;
+  padding-top: calc(4 * var(--hero-video-rem));
+}
+
+@media (width >= 577px) {
+  .hero-video {
+    --hero-video-rem: 13px;
+
+    height: max(400px, 100vh - 200px);
+  }
+
+  .hero-video .hero-video-media {
+    height: calc(100vh - 50px);
+  }
+}
+
+/* desktop: background video only; overlay text is not shown on the source */
+@media (width >= 768px) {
+  .hero-video .hero-video-media video,
+  .hero-video .hero-video-toggle {
+    display: block;
+  }
+
+  .hero-video:not(.no-media) .hero-video-content:not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+@media (width >= 993px) {
+  .hero-video {
+    height: max(622px, 100vh - 200px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video .hero-video-media video {
+    display: none;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://www.explorewtc.com/en/local.html",
+  "path": "en/local",
+  "timestamp": "2026-10-15T16:29:01.294Z",
+  "title": "The World Trade Center",
+  "template": "local",
+  "blocks": [
+    "hero-video",
+    "cards-quicklinks",
+    "columns-newsletter",
+    "cards-explore",
+    "cards-explore",
+    "cards-explore",
+    "cards-explore",
+    "cards-explore",
+    "cards-explore",
+    "cards-event",
+    "carousel-featured",
+    "columns-social"
+  ]
+}

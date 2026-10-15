@@ -1,0 +1,120 @@
+/*
+ * columns-social: [Instagram embed | promo image]
+ * Source is a full-viewport AEM 12-column float grid (1 col = 100vw / 12),
+ * so desktop/tablet column offsets and widths are expressed in vw and the row
+ * is shifted out of the centered section wrapper with calc(50% - Nvw).
+ */
+
+/* source: 100px .wtc-block spacers above/below; the dark section already adds --section-padding */
+.columns-social {
+  margin-block: calc(100px - var(--section-padding));
+}
+
+.columns-social .columns-social-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.columns-social .columns-social-row > div {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Instagram embed (iframe styles as set by Instagram's embed.js) */
+.columns-social .columns-social-embed {
+  position: relative;
+  width: 100%;
+}
+
+.columns-social .columns-social-embed iframe {
+  display: block;
+  width: calc(100% - 2px);
+  min-width: min(326px, 100% - 2px);
+  max-width: 540px;
+  height: 0;
+  margin: 0 auto 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: var(--wtc-white);
+  box-shadow: none;
+}
+
+/* only frame the embed once Instagram reports content (an empty embed is invisible on the source) */
+.columns-social .columns-social-embed.has-content iframe {
+  border: 1px solid rgb(219 219 219);
+}
+
+.columns-social .columns-social-embed-fallback {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.columns-social .columns-social-embed.is-loaded .columns-social-embed-fallback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* promo image (.wtc-image--top-margin .cmp-image { margin-top: 1rem }) */
+.columns-social .columns-social-img-col {
+  max-width: 360px;
+  margin-top: 1rem;
+  line-height: 0;
+}
+
+.columns-social .columns-social-img-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.columns-social .columns-social-empty {
+  display: none;
+}
+
+/* tablet grid (source: 650px-1200px): embed offset 1 col / 5 cols wide,
+   image starts at col 7 / 4 cols wide and wraps below the embed */
+@media (width >= 650px) {
+  .columns-social .columns-social-row {
+    align-items: flex-start;
+    width: calc(100vw * 10 / 12);
+    margin-left: calc(50% - 100vw * 5 / 12);
+  }
+
+  .columns-social .columns-social-row > .columns-social-embed-col {
+    width: calc(100vw * 5 / 12);
+  }
+
+  .columns-social .columns-social-row > .columns-social-img-col {
+    width: calc(100vw / 3);
+    max-width: none;
+    margin-left: calc(100vw / 2);
+  }
+}
+
+/* desktop grid (source: > 1200px): embed offset 2 cols / 4 cols wide,
+   image offset 1 col / 3 cols wide, both top-aligned */
+@media (width >= 1201px) {
+  .columns-social .columns-social-row {
+    flex-direction: row;
+    width: calc(100vw * 2 / 3);
+    margin-left: calc(50% - 100vw / 3);
+  }
+
+  .columns-social .columns-social-row > .columns-social-embed-col {
+    flex: 0 0 calc(100vw / 3);
+    width: auto;
+  }
+
+  .columns-social .columns-social-row > .columns-social-img-col {
+    flex: 0 0 calc(100vw / 4);
+    width: auto;
+    margin-left: calc(100vw / 12);
+  }
+}

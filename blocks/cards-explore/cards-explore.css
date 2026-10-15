@@ -1,0 +1,147 @@
+/*
+ * cards-explore: attraction photo tiles.
+ * Source sizes are rem-based against a root font that steps 12/13/14/15/16px
+ * (<=576 / <=768 / <=992 / <=1200 / >1200). --cards-explore-unit mirrors that.
+ */
+.cards-explore {
+  --cards-explore-unit: 12px;
+  --cards-explore-img-height: 350px;
+}
+
+.cards-explore > ul {
+  list-style: none;
+  margin: 0;
+  padding: calc(var(--cards-explore-unit) * 0.5);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--cards-explore-unit);
+}
+
+.cards-explore > ul > li {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  background-color: var(--wtc-white);
+  border: 1px solid var(--wtc-black);
+}
+
+/* image and body share one grid cell so the body overlays the image */
+.cards-explore > ul > li > div {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.cards-explore .cards-explore-card-image {
+  line-height: 0;
+  background-color: rgb(187 186 187);
+}
+
+.cards-explore .cards-explore-card-image picture {
+  display: block;
+}
+
+.cards-explore .cards-explore-card-image img {
+  display: block;
+  width: 100%;
+  height: var(--cards-explore-img-height);
+  object-fit: cover;
+}
+
+/* title strip pinned to the bottom of the image */
+.cards-explore .cards-explore-card-body {
+  align-self: end;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 0 0;
+  background: linear-gradient(rgb(0 0 0 / 0%) 0, var(--wtc-black) 100%);
+}
+
+.cards-explore .cards-explore-card-body > * {
+  margin: 0;
+}
+
+.cards-explore .cards-explore-card-title {
+  padding: 0 var(--cards-explore-unit) var(--cards-explore-unit);
+  font-family: var(--heading-font-family);
+  font-size: calc(var(--cards-explore-unit) * 1.75);
+  font-weight: 700;
+  line-height: calc(var(--cards-explore-unit) * 2.375);
+  text-transform: none;
+  color: var(--wtc-white);
+}
+
+.cards-explore .cards-explore-card-title a:any-link {
+  color: var(--wtc-white);
+  text-decoration: underline;
+}
+
+/* description: hidden until hover, then fills the top 90% of the tile */
+.cards-explore .cards-explore-card-desc {
+  display: none;
+  position: absolute;
+  inset: 0 0 auto;
+  height: 90%;
+  box-sizing: border-box;
+  padding: 0 var(--cards-explore-unit);
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgb(0 0 1) 0, rgb(0 0 0 / 0%) 100%);
+  color: var(--wtc-white);
+  font-family: var(--body-font-family);
+  font-size: calc(var(--cards-explore-unit) * 1.375);
+  line-height: calc(var(--cards-explore-unit) * 1.9375);
+}
+
+.cards-explore > ul > li:hover .cards-explore-card-desc,
+.cards-explore > ul > li:focus-within .cards-explore-card-desc {
+  display: flex;
+}
+
+/* stretch the tile link over the whole card */
+.cards-explore .cards-explore-card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+@media (hover: none) {
+  .cards-explore > ul > li:hover .cards-explore-card-desc {
+    display: none;
+  }
+}
+
+@media (width >= 577px) {
+  .cards-explore {
+    --cards-explore-unit: 13px;
+    --cards-explore-img-height: 275px;
+  }
+
+  .cards-explore > ul > li {
+    border: 0;
+  }
+}
+
+@media (width >= 769px) {
+  .cards-explore {
+    --cards-explore-unit: 14px;
+    --cards-explore-img-height: 350px;
+  }
+}
+
+@media (width >= 993px) {
+  .cards-explore {
+    --cards-explore-unit: 15px;
+    --cards-explore-img-height: 416px;
+  }
+}
+
+@media (width >= 1201px) {
+  .cards-explore {
+    --cards-explore-unit: 16px;
+  }
+
+  .cards-explore > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

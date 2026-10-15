@@ -1,0 +1,20 @@
+{
+  "variantName": "cards-event",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light-blue",
+    "density": "spacious",
+    "purpose": "featured-event",
+    "imagePattern": "large-tile-overlay",
+    "structure": "image + overlay date + linked title"
+  },
+  "contentPattern": "Each row: [image | date paragraph + linked title]",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": null
+  },
+  "options": [],
+  "memberVariantIds": []
+}

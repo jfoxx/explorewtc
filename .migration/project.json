@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "explorewtc": {
+      "previewOrg": "jfoxx",
+      "previewSite": "explorewtc",
+      "contentHostUrl": "https://content.da.live/jfoxx/explorewtc/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

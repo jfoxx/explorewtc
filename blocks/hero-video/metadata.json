@@ -1,0 +1,20 @@
+{
+  "variantName": "hero-video",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "purpose": "landing-hero",
+    "imagePattern": "background-video",
+    "structure": "bg video + poster + h1 + cta"
+  },
+  "contentPattern": "Row 1: background video link (mp4) + poster image. Row 2: h1 'Explore World Trade Center' + 'Learn More' link.",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": null
+  },
+  "options": [],
+  "memberVariantIds": []
+}
