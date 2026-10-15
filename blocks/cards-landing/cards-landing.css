@@ -1,0 +1,176 @@
+/*
+ * cards-landing: full-bleed category panels cut on a diagonal.
+ * As on the source, each panel is skewed (-17.76deg) and clipped, while its
+ * image and content are counter-skewed so they render upright. Adjacent panels
+ * share the diagonal edge; transparent areas of the pattern PNGs show the
+ * panel's own background colour (black on odd rows, sunlight gold on even).
+ * Sizes are rem-based on the source; --wtc-rem reproduces its stepped root font.
+ */
+
+/* full-bleed: escape the section content max-width */
+.cards-landing-container .cards-landing-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.cards-landing {
+  --cards-landing-skew: 17.76deg;
+}
+
+.cards-landing > ol {
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+}
+
+/* panel */
+.cards-landing .cards-landing-panel {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  min-height: 700px;
+  overflow: hidden;
+  background-color: var(--wtc-black);
+  transform: skewY(calc(-1 * var(--cards-landing-skew)));
+}
+
+.cards-landing .cards-landing-panel:nth-child(even) {
+  background-color: rgb(250 166 29);
+}
+
+/* the first panel's upper diagonal is pulled up out of view */
+.cards-landing .cards-landing-panel:first-child {
+  min-height: 700px;
+  margin-top: -340px;
+}
+
+/* dark gradient over the odd (photo) panels */
+.cards-landing .cards-landing-panel:nth-child(odd)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgb(0 0 0 / 30%) 50%, rgb(0 0 0 / 60%) 100%);
+  pointer-events: none;
+}
+
+/* background image, counter-skewed so it renders upright */
+.cards-landing .cards-landing-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  transform: skewY(var(--cards-landing-skew));
+  transform-origin: left bottom;
+}
+
+.cards-landing .cards-landing-panel:not(:first-child) .cards-landing-image {
+  height: 200%;
+  transform-origin: right top;
+}
+
+.cards-landing .cards-landing-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cards-landing .cards-landing-image img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 0;
+}
+
+/* content, counter-skewed */
+.cards-landing .cards-landing-content {
+  position: relative;
+  z-index: 1;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 1345px;
+  margin: 0 auto;
+  padding: calc(2 * var(--wtc-rem)) calc(2 * var(--wtc-rem)) calc(4 * var(--wtc-rem));
+  color: var(--wtc-white);
+  transform: skewY(var(--cards-landing-skew));
+}
+
+.cards-landing .cards-landing-panel:first-child .cards-landing-content {
+  margin-top: 300px;
+}
+
+.cards-landing .cards-landing-panel:nth-child(even) .cards-landing-content {
+  align-items: flex-end;
+}
+
+.cards-landing .cards-landing-title {
+  /* the source breaks long titles onto two lines ("9/11 Memorial / & Museum") */
+  max-width: 7.2em;
+  margin: var(--wtc-rem) 0;
+  color: var(--wtc-white);
+  font-size: calc(7 * var(--wtc-rem));
+  line-height: calc(6.875 * var(--wtc-rem));
+  letter-spacing: calc(3.27 * var(--wtc-rem) / 16) /* 0.204375rem */;
+  text-transform: uppercase;
+  text-shadow: rgb(0 0 0 / 50%) 0 2px 4px;
+}
+
+.cards-landing .cards-landing-panel:nth-child(even) .cards-landing-title {
+  text-align: right;
+}
+
+/* CTA: white outlined button with the white double arrow */
+.cards-landing .cards-landing-content > p {
+  margin: 0;
+}
+
+.cards-landing .cards-landing-content a.button:any-link {
+  border-color: var(--wtc-white);
+  color: var(--wtc-white);
+  text-shadow: rgb(0 0 0 / 50%) 0 2px 4px;
+  filter: drop-shadow(rgb(0 0 0 / 50%) 0 2px 4px);
+}
+
+.cards-landing .cards-landing-content a.button::after {
+  background-image: url('../../icons/double-arrow-white.svg');
+}
+
+@media (width <= 768px) {
+  .cards-landing .cards-landing-panel {
+    min-height: 400px;
+  }
+
+  .cards-landing .cards-landing-panel:first-child {
+    margin-top: -400px;
+  }
+
+  .cards-landing .cards-landing-title {
+    width: 100%;
+    max-width: 7.8em; /* wider letter-spacing ratio on mobile */
+    font-size: calc(3 * var(--wtc-rem));
+    line-height: calc(3.5 * var(--wtc-rem));
+  }
+}
+
+@media (width > 768px) and (width <= 992px) {
+  .cards-landing .cards-landing-title {
+    font-size: calc(5 * var(--wtc-rem));
+  }
+}
+
+@media (width >= 1201px) {
+  .cards-landing .cards-landing-panel:nth-child(odd) .cards-landing-content {
+    padding-top: calc(7 * var(--wtc-rem));
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.explorewtc.com/en/local/things-to-do.html",
+  "path": "en/local/things-to-do",
+  "timestamp": "2026-10-15T17:37:10.338Z",
+  "title": "Things to Do at the World Trade Center",
+  "template": "things-to-do",
+  "blocks": [
+    "cards-landing"
+  ]
+}

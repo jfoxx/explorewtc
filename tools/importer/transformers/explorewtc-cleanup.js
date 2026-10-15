@@ -77,6 +77,9 @@ export default function transform(hookName, element, payload) {
       '.ie-browser-message',
       // Google Translate tooltip/voting widget injected at body end
       '#goog-gt-tt',
+      // Breadcrumb ("Home > Things to Do") is generated from the page hierarchy, not authored
+      'div.breadcrumb',
+      '.wtc-breadcrumb',
     ]);
 
     // Empty spacer blocks: div.block > div.wtc-block (no content)

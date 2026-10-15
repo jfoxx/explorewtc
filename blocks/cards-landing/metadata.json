@@ -1,0 +1,22 @@
+{
+  "variantName": "cards-landing",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "category-landing-panels",
+    "imagePattern": "full-bleed-background",
+    "structure": "image + heading + cta",
+    "layout": "1 column, stacked full-width panels skewed -17.76deg (700px min-height, 400px <=768px) sharing diagonal edges; image and content counter-skewed; alternating left/right content alignment",
+    "notes": "Odd panels: black bg + dark gradient overlay; even panels: sunlight-gold bg rgb(250,166,29) shows through transparent areas of the pattern PNGs; uppercase white heading 7rem with text-shadow; outlined white 'Learn More' button with double-chevron icon and drop-shadow"
+  },
+  "contentPattern": "Each row: [background image | h2 heading + paragraph with 'Learn More' link]. Six rows in source order. Alternating alignment derived from row index in CSS (odd = left, even = right); PNG images are treated as patterns (no overlay), other images as photos (dark gradient overlay).",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": null
+  },
+  "options": [],
+  "memberVariantIds": []
+}

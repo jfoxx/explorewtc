@@ -9,8 +9,7 @@
         "https://www.explorewtc.com/en/local.html"
       ],
       "representativeUrl": "https://www.explorewtc.com/en/local.html",
-      "description": "Explore WTC local landing page: video hero, quick links, newsletter promo, attraction tiles, upcoming events, featured articles carousel and social promo",
-      "urlPattern": "/en/*",
+      "description": "To be named in naming step",
       "blocks": [
         {
           "name": "hero-video",
@@ -148,6 +147,39 @@
           "style": "dark",
           "blocks": [
             "columns-social"
+          ],
+          "defaultContent": []
+        }
+      ],
+      "urlPattern": "/en/*"
+    },
+    {
+      "name": "things-to-do",
+      "urls": [
+        "https://www.explorewtc.com/en/local/things-to-do.html"
+      ],
+      "representativeUrl": "https://www.explorewtc.com/en/local/things-to-do.html",
+      "description": "Explore WTC Things To Do landing page: six stacked full-width category panels (image background, heading, Learn More link)",
+      "blocks": [
+        {
+          "name": "cards-landing",
+          "instances": [
+            ".wtc-page-landing"
+          ]
+        }
+      ],
+      "urlPattern": "/en/local/*",
+      "sections": [
+        {
+          "id": "1",
+          "name": "Things to Do landing panels",
+          "selector": [
+            ".section.wtc-section--content-full-width",
+            ".wtc-body__content-wrapper > .aem-Grid > .section"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-landing"
           ],
           "defaultContent": []
         }
